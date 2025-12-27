@@ -1,27 +1,27 @@
 CREATE TABLE faculties (
-    faculty_id SERIAL PRIMARY KEY,
-    faculty_name VARCHAR(50) NOT NULL
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE groups (
-    group_id SERIAL PRIMARY KEY,
-    group_name VARCHAR(20) NOT NULL,
-    faculty_id INT REFERENCES faculties(faculty_id)
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(20) NOT NULL,
+    faculty_id INT REFERENCES faculties(id)
 );
 
 CREATE TABLE students (
-    student_id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     first_name VARCHAR(50),
     last_name VARCHAR(50),
     gender VARCHAR(10),
     birth_date DATE,
-    group_id INT REFERENCES groups(group_id)
+    group_id INT REFERENCES groups(id)
 );
 
 CREATE TABLE schedule (
-    schedule_id SERIAL PRIMARY KEY,
-    faculty_id INT REFERENCES faculties(faculty_id),
-    group_id INT REFERENCES groups(group_id),
+    id SERIAL PRIMARY KEY,
+    faculty_id INT REFERENCES faculties(id),
+    group_id INT REFERENCES groups(id),
     subject VARCHAR(100),
     class_time VARCHAR(50)
 );
