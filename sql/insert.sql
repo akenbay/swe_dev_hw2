@@ -1,11 +1,11 @@
-INSERT INTO faculties (faculty_name) VALUES
+INSERT INTO faculties (name) VALUES
 ('Engineering'),
 ('Humanities'),
 ('IT'),
 ('Economics'),
 ('Law');
 
-INSERT INTO groups (group_name, faculty_id) VALUES
+INSERT INTO groups (name, faculty_id) VALUES
 ('ENG-101', 1),
 ('ENG-102', 1),
 ('HUM-201', 2),
