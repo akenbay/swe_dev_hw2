@@ -22,6 +22,11 @@ CREATE TABLE schedule (
     id SERIAL PRIMARY KEY,
     faculty_id INT REFERENCES faculties(id),
     group_id INT REFERENCES groups(id),
-    subject VARCHAR(100),
+    subject_id INT REFERENCES subjects(id),
     class_time VARCHAR(50)
+);
+
+CREATE TABLE subjects (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
 );
