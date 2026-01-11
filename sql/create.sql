@@ -30,3 +30,11 @@ CREATE TABLE subjects (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL
 );
+
+CREATE TABLE attendance (
+    id SERIAL PRIMARY KEY,
+    student_id INT NOT NULL REFERENCES students(id),
+    subject_id INT NOT NULL REFERENCES subjects(id),
+    visit_day DATE NOT NULL,
+    visited BOOLEAN NOT NULL
+);
