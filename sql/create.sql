@@ -34,7 +34,7 @@ CREATE TABLE students (
     last_name VARCHAR(50),
     gender VARCHAR(10),
     birth_date DATE,
-    group_id INT REFERENCES groups(id)
+    group_id INT REFERENCES groups(id),
     user_id INT UNIQUE REFERENCES users(id) ON DELETE SET NULL
 );
 
