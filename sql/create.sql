@@ -17,6 +17,17 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE roles (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(30) UNIQUE NOT NULL
+);
+
+CREATE TABLE user_roles (
+    user_id INT REFERENCES users(id) ON DELETE CASCADE,
+    role_id INT REFERENCES roles(id) ON DELETE CASCADE,
+    PRIMARY KEY (user_id, role_id)
+);
+
 CREATE TABLE students (
     id SERIAL PRIMARY KEY,
     first_name VARCHAR(50),
