@@ -9,6 +9,14 @@ CREATE TABLE groups (
     faculty_id INT REFERENCES faculties(id)
 );
 
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password_hash TEXT NOT NULL,
+    is_active BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 CREATE TABLE students (
     id SERIAL PRIMARY KEY,
     first_name VARCHAR(50),
@@ -16,6 +24,7 @@ CREATE TABLE students (
     gender VARCHAR(10),
     birth_date DATE,
     group_id INT REFERENCES groups(id)
+    user_id INT UNIQUE REFERENCES users(id) ON DELETE SET NULL
 );
 
 CREATE TABLE schedule (
