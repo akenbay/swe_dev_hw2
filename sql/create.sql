@@ -38,6 +38,15 @@ CREATE TABLE students (
     user_id INT UNIQUE REFERENCES users(id) ON DELETE SET NULL
 );
 
+CREATE TABLE staff (
+    id SERIAL PRIMARY KEY,
+    user_id INT UNIQUE REFERENCES users(id) ON DELETE CASCADE,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    faculty_id INT REFERENCES faculties(id),
+    position VARCHAR(50)
+);
+
 CREATE TABLE schedule (
     id SERIAL PRIMARY KEY,
     faculty_id INT REFERENCES faculties(id),
