@@ -18,16 +18,6 @@ CREATE TABLE students (
     group_id INT REFERENCES groups(id)
 );
 
-CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    password_hash TEXT NOT NULL,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-
 CREATE TABLE schedule (
     id SERIAL PRIMARY KEY,
     faculty_id INT REFERENCES faculties(id),
