@@ -1,3 +1,28 @@
+INSERT INTO roles (name) VALUES
+('ADMIN'),
+('TEACHER'),
+('STUDENT');
+
+INSERT INTO users (email, password_hash) VALUES
+('admin@university.kz', 'hashed_admin_password'),
+('teacher1@university.kz', 'hashed_teacher1_password'),
+('teacher2@university.kz', 'hashed_teacher2_password'),
+('anna@university.kz', 'hashed_anna_password'),
+('maria@university.kz', 'hashed_maria_password'),
+('alex@university.kz', 'hashed_alex_password'),
+('elena@university.kz', 'hashed_elena_password'),
+('ivan@university.kz', 'hashed_ivan_password');
+
+INSERT INTO user_roles (user_id, role_id) VALUES
+(1, 1),
+(2, 2),
+(3, 2),
+(4, 3),
+(5, 3),
+(6, 3),
+(7, 3),
+(8, 3);
+
 INSERT INTO faculties (name) VALUES
 ('Engineering'),
 ('Humanities'),
@@ -12,12 +37,17 @@ INSERT INTO groups (name, faculty_id) VALUES
 ('HUM-202', 2),
 ('IT-301', 3);
 
-INSERT INTO students (first_name, last_name, gender, birth_date, group_id) VALUES
-('Anna', 'Ivanova', 'Female', '2003-05-12', 1),
-('Maria', 'Petrova', 'Female', '2002-03-20', 2),
-('Alex', 'Smirnov', 'Male', '2001-11-01', 3),
-('Elena', 'Sidorova', 'Female', '2004-01-15', 4),
-('Ivan', 'Kuznetsov', 'Male', '2002-07-08', 5);
+INSERT INTO students (user_id, first_name, last_name, gender, birth_date, group_id) VALUES
+(4, 'Anna', 'Ivanova', 'Female', '2003-05-12', 1),
+(5, 'Maria', 'Petrova', 'Female', '2002-03-20', 2),
+(6, 'Alex', 'Smirnov', 'Male', '2001-11-01', 3),
+(7, 'Elena', 'Sidorova', 'Female', '2004-01-15', 4),
+(8, 'Ivan', 'Kuznetsov', 'Male', '2002-07-08', 5);
+
+INSERT INTO staff (user_id, first_name, last_name, faculty_id, position) VALUES
+(1, 'System', 'Admin', NULL, 'Administrator'),
+(2, 'John', 'Doe', 1, 'Lecturer'),
+(3, 'Jane', 'Smith', 2, 'Senior Lecturer');
 
 INSERT INTO subjects (name) VALUES
 ('Physical Education'),
